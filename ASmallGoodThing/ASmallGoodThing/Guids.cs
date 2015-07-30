@@ -2,12 +2,12 @@
 // MUST match guids.h
 using System;
 
-namespace myungk2gmailcom.ASmallGoodThing
+namespace mkkim1129.ASmallGoodThing
 {
     static class GuidList
     {
-        public const string guidASmallGoodThingPkgString = "12797036-b265-4427-8b94-b864f24503ac";
-        public const string guidASmallGoodThingCmdSetString = "830f5b67-73d7-4027-917a-a0926ed28567";
+        public const string guidASmallGoodThingPkgString = "34cd23bf-1b96-4640-ba6e-4a553302af9a";
+        public const string guidASmallGoodThingCmdSetString = "86a8bb61-742f-41e5-8e2c-f3b9647cc751";
 
         public static readonly Guid guidASmallGoodThingCmdSet = new Guid(guidASmallGoodThingCmdSetString);
     };

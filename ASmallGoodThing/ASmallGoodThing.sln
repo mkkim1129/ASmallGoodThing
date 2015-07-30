@@ -3,14 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASmallGoodThing", "ASmallGoodThing\ASmallGoodThing.csproj", "{26292AA5-F902-4520-8799-B7C59F52B334}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2590FA04-04CC-4C97-8CAA-1E52B2801ED7} = {2590FA04-04CC-4C97-8CAA-1E52B2801ED7}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsDebuggerExtension", "AsDebuggerExtension\AsDebuggerExtension.csproj", "{2590FA04-04CC-4C97-8CAA-1E52B2801ED7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICSharpCode.AvalonEdit", "ICSharpCode.AvalonEdit\ICSharpCode.AvalonEdit.csproj", "{6C55B776-26D4-4DB3-A6AB-87E783B2F3D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASmallGoodThing", "ASmallGoodThing\ASmallGoodThing.csproj", "{A510CC64-77AC-48DD-85AF-36D875765205}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{26292AA5-F902-4520-8799-B7C59F52B334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26292AA5-F902-4520-8799-B7C59F52B334}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26292AA5-F902-4520-8799-B7C59F52B334}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26292AA5-F902-4520-8799-B7C59F52B334}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2590FA04-04CC-4C97-8CAA-1E52B2801ED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2590FA04-04CC-4C97-8CAA-1E52B2801ED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2590FA04-04CC-4C97-8CAA-1E52B2801ED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -30,6 +23,10 @@ Global
 		{6C55B776-26D4-4DB3-A6AB-87E783B2F3D1}.Debug|Any CPU.Build.0 = Debug|Net40
 		{6C55B776-26D4-4DB3-A6AB-87E783B2F3D1}.Release|Any CPU.ActiveCfg = Release|Net40
 		{6C55B776-26D4-4DB3-A6AB-87E783B2F3D1}.Release|Any CPU.Build.0 = Release|Net40
+		{A510CC64-77AC-48DD-85AF-36D875765205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A510CC64-77AC-48DD-85AF-36D875765205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A510CC64-77AC-48DD-85AF-36D875765205}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A510CC64-77AC-48DD-85AF-36D875765205}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
