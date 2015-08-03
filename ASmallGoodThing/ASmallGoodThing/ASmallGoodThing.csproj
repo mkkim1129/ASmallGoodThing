@@ -135,7 +135,18 @@
     <None Include="Resources\Images.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\CloseAll.png" />
+    <Resource Include="Resources\cmd.png" />
+    <Resource Include="Resources\NewDocument.png" />
+    <Resource Include="Resources\Open.png" />
     <Content Include="Resources\Package.ico" />
+    <Resource Include="Resources\Redo.png" />
+    <Resource Include="Resources\Restart.png" />
+    <Resource Include="Resources\run.png" />
+    <Resource Include="Resources\RunSelectedText.png" />
+    <Resource Include="Resources\save.png" />
+    <Resource Include="Resources\SaveAll.png" />
+    <Resource Include="Resources\Undo.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AsDebuggerExtension\AsDebuggerExtension.csproj">

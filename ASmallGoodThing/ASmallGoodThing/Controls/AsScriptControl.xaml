@@ -45,7 +45,122 @@
     </UserControl.Resources>
     
     <DockPanel>
-        <!--TODO : ToolBar-->
+        <ToolBar DockPanel.Dock="Top" Background="{DynamicResource {x:Static vsfx:VsBrushes.ToolboxBackgroundKey}}"
+                 ToolBarTray.IsLocked="True">
+            <ToolBar.Resources>
+                <Style TargetType="{x:Type Image}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type ButtonBase}, AncestorLevel=1}, Path=IsEnabled}"
+                                     Value="False">
+                            <Setter Property="Opacity" Value="0.30"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ToolBar.Resources>
+            <Button Click="newFileClick" KeyboardNavigation.IsTabStop="False">
+                <Image Source="/ASmallGoodThing;component/Resources/NewDocument.png" Height="16"/>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock>New File</TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button Click="openFileClick" KeyboardNavigation.IsTabStop="False">
+                <Image Source="/ASmallGoodThing;component/Resources/Open.png" Height="16"/>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock>Open File</TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button Click="saveFileClick" KeyboardNavigation.IsTabStop="False">
+                <Image Source="/ASmallGoodThing;component/Resources/Save.png" Height="16"/>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock>Save File</TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button Click="saveFileAllClick" KeyboardNavigation.IsTabStop="False">
+                <Image Source="/ASmallGoodThing;component/Resources/SaveAll.png" Height="16"/>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock>Save All</TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button Click="closeAllClick" KeyboardNavigation.IsTabStop="False">
+                <Image Source="/ASmallGoodThing;component/Resources/CloseAll.png" Height="16"/>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock>Close All</TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Separator/>
+            <Button Command="Undo" KeyboardNavigation.IsTabStop="False">
+                <Image Source="/ASmallGoodThing;component/Resources/Undo.png" Height="16"/>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock>Undo</TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button Command="Redo" KeyboardNavigation.IsTabStop="False">
+                <Image Source="/ASmallGoodThing;component/Resources/Redo.png" Height="16"/>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock>Redo</TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Separator/>
+            <Button x:Name="buttonClear" Click="clearClick" KeyboardNavigation.IsTabStop="False">
+                <Image Source="/ASmallGoodThing;component/Resources/cmd.png" Height="16"/>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock>Clear Console Window</TextBlock>
+                            <TextBlock FontWeight="Bold">.cls</TextBlock>
+                        </StackPanel>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button x:Name="buttonRestart" Click="restartClick" KeyboardNavigation.IsTabStop="False">
+                <Image Source="/ASmallGoodThing;component/Resources/Restart.png" Height="16"/>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock>Restart Python</TextBlock>
+                            <TextBlock FontWeight="Bold">.restart</TextBlock>
+                        </StackPanel>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Separator/>
+            <Button x:Name="buttonRun" Click="runClick" KeyboardNavigation.IsTabStop="False">
+                <Image Source="/ASmallGoodThing;component/Resources/Run.png" Height="16"/>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock>Run Script</TextBlock>
+                            <TextBlock FontWeight="Bold">.run</TextBlock>
+                        </StackPanel>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button x:Name="buttonRunSelected" Click="runSelectedClick" KeyboardNavigation.IsTabStop="False">
+                <Image Source="/ASmallGoodThing;component/Resources/RunSelectedText.png" Height="16"/>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock>Run Selected Text</TextBlock>
+                            <TextBlock FontWeight="Bold">.sel</TextBlock>
+                        </StackPanel>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+        </ToolBar>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>

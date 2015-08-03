@@ -21,5 +21,50 @@ namespace mkkim1129.ASmallGoodThing.Controls
         {
 
         }
+
+        private void newFileClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void openFileClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void saveFileClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void saveFileAllClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void closeAllClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void clearClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void restartClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void runClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void runSelectedClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }        
     }
 }
