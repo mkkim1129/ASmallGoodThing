@@ -58,7 +58,7 @@
                 </Style>
             </ToolBar.Resources>
             <Button Click="newFileClick" KeyboardNavigation.IsTabStop="False">
-                <Image Source="/ASmallGoodThing;component/Resources/NewDocument.png" Height="16"/>
+                <Image Source="../Resources/NewDocument.png" Height="16"/>
                 <Button.ToolTip>
                     <ToolTip>
                         <TextBlock>New File</TextBlock>
@@ -66,7 +66,7 @@
                 </Button.ToolTip>
             </Button>
             <Button Click="openFileClick" KeyboardNavigation.IsTabStop="False">
-                <Image Source="/ASmallGoodThing;component/Resources/Open.png" Height="16"/>
+                <Image Source="../Resources/Open.png" Height="16"/>
                 <Button.ToolTip>
                     <ToolTip>
                         <TextBlock>Open File</TextBlock>
@@ -74,7 +74,7 @@
                 </Button.ToolTip>
             </Button>
             <Button Click="saveFileClick" KeyboardNavigation.IsTabStop="False">
-                <Image Source="/ASmallGoodThing;component/Resources/Save.png" Height="16"/>
+                <Image Source="../Resources/Save.png" Height="16"/>
                 <Button.ToolTip>
                     <ToolTip>
                         <TextBlock>Save File</TextBlock>
@@ -82,7 +82,7 @@
                 </Button.ToolTip>
             </Button>
             <Button Click="saveFileAllClick" KeyboardNavigation.IsTabStop="False">
-                <Image Source="/ASmallGoodThing;component/Resources/SaveAll.png" Height="16"/>
+                <Image Source="../Resources/SaveAll.png" Height="16"/>
                 <Button.ToolTip>
                     <ToolTip>
                         <TextBlock>Save All</TextBlock>
@@ -90,7 +90,7 @@
                 </Button.ToolTip>
             </Button>
             <Button Click="closeAllClick" KeyboardNavigation.IsTabStop="False">
-                <Image Source="/ASmallGoodThing;component/Resources/CloseAll.png" Height="16"/>
+                <Image Source="../Resources/CloseAll.png" Height="16"/>
                 <Button.ToolTip>
                     <ToolTip>
                         <TextBlock>Close All</TextBlock>
@@ -99,7 +99,7 @@
             </Button>
             <Separator/>
             <Button Command="Undo" KeyboardNavigation.IsTabStop="False">
-                <Image Source="/ASmallGoodThing;component/Resources/Undo.png" Height="16"/>
+                <Image Source="../Resources/Undo.png" Height="16"/>
                 <Button.ToolTip>
                     <ToolTip>
                         <TextBlock>Undo</TextBlock>
@@ -107,7 +107,7 @@
                 </Button.ToolTip>
             </Button>
             <Button Command="Redo" KeyboardNavigation.IsTabStop="False">
-                <Image Source="/ASmallGoodThing;component/Resources/Redo.png" Height="16"/>
+                <Image Source="../Resources/Redo.png" Height="16"/>
                 <Button.ToolTip>
                     <ToolTip>
                         <TextBlock>Redo</TextBlock>
@@ -116,7 +116,7 @@
             </Button>
             <Separator/>
             <Button x:Name="buttonClear" Click="clearClick" KeyboardNavigation.IsTabStop="False">
-                <Image Source="/ASmallGoodThing;component/Resources/cmd.png" Height="16"/>
+                <Image Source="../Resources/cmd.png" Height="16"/>
                 <Button.ToolTip>
                     <ToolTip>
                         <StackPanel Orientation="Vertical">
@@ -127,7 +127,7 @@
                 </Button.ToolTip>
             </Button>
             <Button x:Name="buttonRestart" Click="restartClick" KeyboardNavigation.IsTabStop="False">
-                <Image Source="/ASmallGoodThing;component/Resources/Restart.png" Height="16"/>
+                <Image Source="../Resources/Restart.png" Height="16"/>
                 <Button.ToolTip>
                     <ToolTip>
                         <StackPanel Orientation="Vertical">
@@ -139,7 +139,7 @@
             </Button>
             <Separator/>
             <Button x:Name="buttonRun" Click="runClick" KeyboardNavigation.IsTabStop="False">
-                <Image Source="/ASmallGoodThing;component/Resources/Run.png" Height="16"/>
+                <Image Source="../Resources/Run.png" Height="16"/>
                 <Button.ToolTip>
                     <ToolTip>
                         <StackPanel Orientation="Vertical">
@@ -150,7 +150,7 @@
                 </Button.ToolTip>
             </Button>
             <Button x:Name="buttonRunSelected" Click="runSelectedClick" KeyboardNavigation.IsTabStop="False">
-                <Image Source="/ASmallGoodThing;component/Resources/RunSelectedText.png" Height="16"/>
+                <Image Source="../Resources/RunSelectedText.png" Height="16"/>
                 <Button.ToolTip>
                     <ToolTip>
                         <StackPanel Orientation="Vertical">

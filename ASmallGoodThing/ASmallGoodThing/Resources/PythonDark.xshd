@@ -1,0 +1,135 @@
+<SyntaxDefinition name="Python" extensions=".py" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+
+  <Color name="Digits" foreground="#FFbcee68" exampleText="0123456789" />
+  <Color name="DocComment" foreground="#FF98f4cd" exampleText='""" comment' />
+  <Color name="SingleQuoteDocComment" foreground="#FF98f4cd" exampleText="''' comment" />
+  <Color name="LineComment" foreground="#FF98f4cd" exampleText="# comment" />
+  <Color name="String" foreground="#FFe2edff" exampleText='name = "Joe"' />
+  <Color name="Char" foreground="#FFffbbee" exampleText="char linefeed = '\n'" />
+  <Color name="Punctuation" foreground="#FFccf2e0" exampleText="a(b.c);" />
+  <Color name="MethodCall" fontWeight="bold" foreground="#FFbfcaff" exampleText="method(" />
+  <Color name="BuiltInStatements" fontWeight="bold" foreground="#FFbfcaff" exampleText="print 'hello'" />
+  <Color name="ClassStatement" foreground="#FFe2edff" fontWeight="bold" exampleText="class Foo: pass" />
+  <Color name="ExceptionHandlingStatements" fontWeight="bold" foreground="Red" exampleText="raise 'error'" />
+  <Color name="FunctionDefinition" fontWeight="bold" foreground="#FFe2edff" exampleText="def MyFunction" />
+  <Color name="Imports" fontWeight="bold" foreground="#FF98f4cd" exampleText="import System.Xml" />
+  <Color name="IterationStatements" fontWeight="bold" foreground="#FFe2edff" exampleText="for num in range(10,20):" />
+  <Color name="JumpStatements" foreground="#FF00adff" exampleText="return val" />
+  <Color name="OperatorStatements" fontWeight="bold" foreground="#FFfffae8" exampleText="not(a &amp;&amp; b)" />
+  <Color name="PassStatement" foreground="Gray" exampleText="pass" />
+  <Color name="NullStatement" foreground="#FFe2edff" exampleText="return None" />
+  <Color name="SelectionStatements" fontWeight="bold" foreground="#FFe2edff" exampleText="if (a):" />
+  <Color name="WithStatement" foreground="#FFbfcaff" exampleText='with open("a.txt") as file:' />
+
+  <Property name="LineComment" value="#"/>
+
+  <RuleSet ignoreCase="false">
+
+    <Span color="DocComment" multiline="true">
+      <Begin>"""</Begin>
+      <End>"""</End>
+    </Span>
+
+    <Span color="SingleQuoteDocComment" multiline="true">
+      <Begin>'''</Begin>
+      <End>'''</End>
+    </Span>
+
+    <Span color="LineComment">
+      <Begin>\#</Begin>
+    </Span>
+
+    <Span color="String">
+      <Begin>"</Begin>
+      <End>"</End>
+      <RuleSet>
+        <!-- span for escape sequences -->
+        <Span begin="\\" end="."/>
+      </RuleSet>
+    </Span>
+
+    <Span color="Char">
+      <Begin>'</Begin>
+      <End>'</End>
+      <RuleSet>
+        <!-- span for escape sequences -->
+        <Span begin="\\" end="."/>
+      </RuleSet>
+    </Span>
+
+    <Keywords color="BuiltInStatements">
+      <Word>assert</Word>
+      <Word>del</Word>
+      <Word>exec</Word>
+      <Word>global</Word>
+      <Word>lambda</Word>
+      <Word>print</Word>
+    </Keywords>
+
+    <Keywords color="ClassStatement">
+      <Word>class</Word>
+    </Keywords>
+
+    <Keywords color="ExceptionHandlingStatements">
+      <Word>except</Word>
+      <Word>finally</Word>
+      <Word>raise</Word>
+      <Word>try</Word>
+    </Keywords>
+
+    <Keywords color="FunctionDefinition">
+      <Word>def</Word>
+    </Keywords>
+
+    <Keywords color="Imports">
+      <Word>import</Word>
+      <Word>from</Word>
+    </Keywords>
+
+    <Keywords color="IterationStatements">
+      <Word>for</Word>
+      <Word>in</Word>
+      <Word>while</Word>
+    </Keywords>
+
+    <Keywords color="JumpStatements">
+      <Word>break</Word>
+      <Word>continue</Word>
+      <Word>yield</Word>
+      <Word>return</Word>
+    </Keywords>
+
+    <Keywords color="OperatorStatements">
+      <Word>and</Word>
+      <Word>as</Word>
+      <Word>is</Word>
+      <Word>not</Word>
+      <Word>or</Word>
+    </Keywords>
+
+    <Keywords color="PassStatement">
+      <Word>pass</Word>
+    </Keywords>
+
+    <Keywords color="SelectionStatements">
+      <Word>elif</Word>
+      <Word>else</Word>
+      <Word>if</Word>
+    </Keywords>
+
+    <Keywords color="WithStatement">
+      <Word>with</Word>
+    </Keywords>
+
+    <Keywords color="NullStatement">
+      <Word>None</Word>
+    </Keywords>
+
+    <Rule color="MethodCall">\b[\d\w_]+(?=(\s*\())</Rule>
+    <Rule color="Digits">\b0[xX][0-9a-fA-F]+|(\b\d+(\.[0-9]+)?|\.[0-9]+)([eE][+-]?[0-9]+)?</Rule>
+
+    <Rule color="Punctuation">
+      [?,.;()\[\]{}+\-/%*&lt;&gt;^+~!|&amp;]+
+    </Rule>
+  </RuleSet>
+</SyntaxDefinition>
