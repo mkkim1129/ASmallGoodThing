@@ -1,13 +1,5 @@
 from AsDebuggerExtension import *
 
-def LoadContainer(expression, iterateFunction, convertFunction):
-	result = []
-	if convertFunction is None:
-		iterateFunction(expression, lambda elem: result.append(elem))
-	else:
-		iterateFunction(expression, lambda elem: result.append(convertFunction(elem)))
-	return result
-
 # std::vector
 def IterateVector(expression, func):
 	stackFrame = AsDebugger.Instance.GetCurrentStackFrame()
@@ -17,11 +9,16 @@ def IterateVector(expression, func):
 		elementExpression = '((' + expression + ')._Myfirst)[' + str(i) + ']'
 		func(stackFrame.EvaluateExpression(elementExpression))
 
-def LoadVector(expression):
-	return LoadContainer(expression, IterateVector, None)
-	
+def LoadVector(expression, convertFunction):
+	result = []
+	if convertFunction is None:
+		IterateVector(expression, lambda elem: result.append(elem))
+	else:
+		IterateVector(expression, lambda elem: result.append(convertFunction(elem)))
+	return result
+		
 def LoadVectorValue(expression):
-	return LoadContainer(expression, IterateVector, lambda x : x.Value)
+	return LoadVector(expression, lambda x : x.Value)
 	
 # std::list
 def IterateList(expression, func):
@@ -44,11 +41,16 @@ def IterateList(expression, func):
 
 	IterateNode(head[indexNext])
 
-def LoadList(expression):
-	return LoadContainer(expression, IterateList, None)
+def LoadList(expression, convertFunction):
+	result = []
+	if convertFunction is None:
+		IterateList(expression, lambda elem: result.append(elem))
+	else:
+		IterateList(expression, lambda elem: result.append(convertFunction(elem)))
+	return result
 	
 def LoadListValue(expression):
-	return LoadContainer(expression, IterateList, lambda x : x.Value)
+	return LoadList(expression, lambda x : x.Value)
 
 # std::unordered_map
 def IterateUMap(expression, func):
@@ -57,7 +59,15 @@ def IterateUMap(expression, func):
 	for child in list.Children:
 		func(child)
 
-def LoadUMap(expression):
+def LoadUMap(expression, keyConvertFunction, valueConvertFunction):
 	result = {}
-	IterateUMap(expression, lambda elem: result.update({elem['first']:elem['second']}))
+	if keyConvertFunction is None:
+		keyConvertFunction = lambda x : x
+	if valueConvertFunction is None:
+		valueConvertFunction = lambda x : x
+		
+	IterateUMap(expression, lambda elem: result.update({ keyConvertFunction(elem['first']) : valueConvertFunction(elem['second']) }))
 	return result
+
+def LoadUMapValue(expression):
+	return LoadUMap(expression, lambda x : x.Value, lambda x : x.Value)
