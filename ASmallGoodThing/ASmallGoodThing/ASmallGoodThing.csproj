@@ -138,6 +138,10 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\PythonLight.xshd" />
     <EmbeddedResource Include="Resources\PythonDark.xshd" />
+    <Content Include="py\AsStd.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
