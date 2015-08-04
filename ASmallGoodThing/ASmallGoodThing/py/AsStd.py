@@ -1,27 +1,25 @@
 from AsDebuggerExtension import *
 
 # std::vector
-def IterateVector(expression, func):
-	stackFrame = AsDebugger.Instance.GetCurrentStackFrame()
-	sizeExpression = '(' + expression + ')._Mylast - (' + expression + ')._Myfirst' 
-	size = int(stackFrame.EvaluateExpression(sizeExpression).Value)
-	for i in range(size):
-		elementExpression = '((' + expression + ')._Myfirst)[' + str(i) + ']'
-		func(stackFrame.EvaluateExpression(elementExpression))
+def IterateVector(stdVector, func):
+	objectType = stdVector['_Myfirst'].Type
+	sizeExpression = '(' + stdVector['_Mylast'].Value + '-' + stdVector['_Myfirst'].Value + ') / sizeof(' + objectType[:-2] + ')'	
+	size = int(AsVariable(sizeExpression).Value)
 
-def LoadVector(expression, convertFunction):
+	for i in range(size):
+		elementExpression = '*((' + objectType + ')' + stdVector['_Myfirst'].Value + '+' + str(i) + ')'
+		func(AsVariable(elementExpression))
+
+def LoadVector(stdVector, convertFunction):
 	result = []
 	if convertFunction is None:
-		IterateVector(expression, lambda elem: result.append(elem))
+		IterateVector(stdVector, lambda elem: result.append(elem))
 	else:
-		IterateVector(expression, lambda elem: result.append(convertFunction(elem)))
+		IterateVector(stdVector, lambda elem: result.append(convertFunction(elem)))
 	return result
 		
-def LoadVectorValue(expression):
-	return LoadVector(expression, lambda x : x.Value)
-	
 # std::list
-def IterateList(expression, func):
+def IterateList(stdList, func):
 	def IterateNode(node):
 		func(node[indexMyval])
 		next = node[indexNext]
@@ -33,7 +31,6 @@ def IterateList(expression, func):
 			if head.Children[i].Name == childName:
 				return i
 
-	stdList = AsVariable(expression)
 	head = stdList['_Myhead']
 	
 	indexMyval = FindChildIndex('_Myval')
@@ -41,33 +38,26 @@ def IterateList(expression, func):
 
 	IterateNode(head[indexNext])
 
-def LoadList(expression, convertFunction):
+def LoadList(stdList, convertFunction):
 	result = []
 	if convertFunction is None:
-		IterateList(expression, lambda elem: result.append(elem))
+		IterateList(stdList, lambda elem: result.append(elem))
 	else:
-		IterateList(expression, lambda elem: result.append(convertFunction(elem)))
+		IterateList(stdList, lambda elem: result.append(convertFunction(elem)))
 	return result
 	
-def LoadListValue(expression):
-	return LoadList(expression, lambda x : x.Value)
-
 # std::unordered_map
-def IterateUMap(expression, func):
-	unorderedMap = AsVariable(expression)
+def IterateUMap(unorderedMap, func):
 	list = unorderedMap['_List']
 	for child in list.Children:
 		func(child)
 
-def LoadUMap(expression, keyConvertFunction, valueConvertFunction):
+def LoadUMap(unorderedMap, keyConvertFunction, valueConvertFunction):
 	result = {}
 	if keyConvertFunction is None:
 		keyConvertFunction = lambda x : x
 	if valueConvertFunction is None:
 		valueConvertFunction = lambda x : x
 		
-	IterateUMap(expression, lambda elem: result.update({ keyConvertFunction(elem['first']) : valueConvertFunction(elem['second']) }))
+	IterateUMap(unorderedMap, lambda elem: result.update({ keyConvertFunction(elem['first']) : valueConvertFunction(elem['second']) }))
 	return result
-
-def LoadUMapValue(expression):
-	return LoadUMap(expression, lambda x : x.Value, lambda x : x.Value)

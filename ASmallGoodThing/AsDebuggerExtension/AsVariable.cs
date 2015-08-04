@@ -30,6 +30,14 @@ namespace AsDebuggerExtension
             }
         }
 
+        public string Type
+        {
+            get
+            {
+                return debugPropertyInfo_.bstrType;
+            }
+        }
+
         public AsVariable[] Children
         {
             get
@@ -155,6 +163,7 @@ namespace AsDebuggerExtension
             string result = base.ToString() + Environment.NewLine;
             result += "\tName : " + this.Name + Environment.NewLine;
             result += "\tValue : " + this.Value;
+            result += "\tType : " + this.Type;
             return result;
         }
         #endregion Public Methods
