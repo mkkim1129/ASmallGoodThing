@@ -162,7 +162,7 @@ namespace AsDebuggerExtension
         {
             string result = base.ToString() + Environment.NewLine;
             result += "\tName : " + this.Name + Environment.NewLine;
-            result += "\tValue : " + this.Value;
+            result += "\tValue : " + this.Value + Environment.NewLine;
             result += "\tType : " + this.Type;
             return result;
         }
