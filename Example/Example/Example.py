@@ -1,4 +1,4 @@
-from AsStd import *
+from vs2013 import *
 
 def CompareList(lhs, rhs):
 	if len(lhs) != len(rhs):
