@@ -41,7 +41,7 @@ namespace AsDebuggerExtension
             return System.Text.Encoding.Unicode.GetString(bytes_);
         }
 
-        public string ConvertToNullTerminatedString()
+        public string ConvertToNullTerminatedAsciiString()
         {
             int nullIndex = Array.FindIndex(bytes_, x => x == '\0');
             if (nullIndex != -1)
@@ -51,6 +51,28 @@ namespace AsDebuggerExtension
             else
             {
                 return System.Text.Encoding.ASCII.GetString(bytes_);
+            }
+        }
+
+        public string ConvertToNullTerminatedUnicodeString()
+        {
+            int nullIndex = -1;
+            for (int i = 0; i < bytes_.Length; i += 2)
+            {
+                if (bytes_[i] == '\0' && bytes_[i+1] == '\0') 
+                {
+                    nullIndex = i;
+                    break;
+                }
+            }
+            
+            if (nullIndex != -1)
+            {
+                return System.Text.Encoding.Unicode.GetString(bytes_, 0, nullIndex);
+            }
+            else
+            {
+                return System.Text.Encoding.Unicode.GetString(bytes_);
             }
         }
         #endregion Public Methods

@@ -69,7 +69,6 @@ sys.path.append('{0}')
 sys.path.append('{0}/py')
 clr.AddReference('AsDebuggerExtension.dll')
 from AsDebuggerExtension import *
-from AsStd import *
 print(sys.version)
 ", extensionPath_);
             engine_.Execute(initializeCode, scope_);

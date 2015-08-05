@@ -138,7 +138,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\PythonLight.xshd" />
     <EmbeddedResource Include="Resources\PythonDark.xshd" />
-    <Content Include="py\AsStd.py">
+    <Content Include="py\vs2013.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
