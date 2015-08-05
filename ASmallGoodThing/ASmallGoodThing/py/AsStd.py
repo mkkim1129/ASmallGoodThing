@@ -5,9 +5,9 @@ def IterateVector(stdVector, func):
 	objectType = stdVector['_Myfirst'].Type
 	sizeExpression = '(' + stdVector['_Mylast'].Value + '-' + stdVector['_Myfirst'].Value + ') / sizeof(' + objectType[:-2] + ')'	
 	size = int(AsVariable(sizeExpression).Value)
-
+	myfirstValue = stdVector['_Myfirst'].Value
 	for i in range(size):
-		elementExpression = '*((' + objectType + ')' + stdVector['_Myfirst'].Value + '+' + str(i) + ')'
+		elementExpression = '*((' + objectType + ')' + myfirstValue + '+' + str(i) + ')'
 		func(AsVariable(elementExpression))
 
 def LoadVector(stdVector, convertFunction):
