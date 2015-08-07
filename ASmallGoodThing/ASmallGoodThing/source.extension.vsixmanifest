@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="34cd23bf-1b96-4640-ba6e-4a553302af9a" Version="1.0" Language="en-US" Publisher="mkkim1129" />
+    <Identity Id="34cd23bf-1b96-4640-ba6e-4a553302af9a" Version="0.1" Language="en-US" Publisher="mkkim1129" />
     <DisplayName>ASmallGoodThing</DisplayName>
     <Description>Information about my package</Description>
   </Metadata>
   <Installation InstalledByMsi="false">
-    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[12.0]" />
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[12.0,]" />
   </Installation>
   <Dependencies>
     <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />

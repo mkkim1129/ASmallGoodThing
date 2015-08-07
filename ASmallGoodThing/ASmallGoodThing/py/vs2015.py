@@ -2,10 +2,11 @@ from AsDebuggerExtension import *
 
 # std::vector #################################################################
 def IterateVector(stdVector, func):
-	objectType = stdVector['_Myfirst'].Type
-	sizeExpression = '(' + stdVector['_Mylast'].Value + '-' + stdVector['_Myfirst'].Value + ') / sizeof(' + objectType[:-2] + ')'	
+	myval2 = stdVector['_Mypair']['_Myval2']
+	objectType = myval2['_Myfirst'].Type
+	sizeExpression = '(' + myval2['_Mylast'].Value + '-' + myval2['_Myfirst'].Value + ') / sizeof(' + objectType[:-2] + ')'	
 	size = int(AsVariable(sizeExpression).Value)
-	myfirstValue = stdVector['_Myfirst'].Value
+	myfirstValue = myval2['_Myfirst'].Value
 	for i in range(size):
 		elementExpression = '*((' + objectType + ')' + myfirstValue + '+' + str(i) + ')'
 		func(AsVariable(elementExpression))
@@ -31,7 +32,8 @@ def IterateList(stdList, func):
 			if head.Children[i].Name == childName:
 				return i
 
-	head = stdList['_Myhead']
+	myval2 = stdList['_Mypair']['_Myval2']
+	head = myval2['_Myhead']
 	
 	indexMyval = FindChildIndex('_Myval')
 	indexNext = FindChildIndex('_Next')
@@ -48,9 +50,24 @@ def LoadList(stdList, convertFunction):
 	
 # std::unordered_map ##########################################################
 def IterateUMap(unorderedMap, func):
-	list = unorderedMap['_List']
-	for child in list.Children:
-		func(child)
+	def IterateNode(node):
+		func(node[indexMyval])
+		next = node[indexNext]
+		if next.Value != head.Value:
+			IterateNode(next)
+
+	def FindChildIndex(childName):
+		for i in range(head.Children.Length):
+			if head.Children[i].Name == childName:
+				return i
+	
+	myval2 = unorderedMap['_List']['_Mypair']['_Myval2']
+	head = myval2['_Myhead']
+
+	indexMyval = FindChildIndex('_Myval')
+	indexNext = FindChildIndex('_Next')
+	
+	IterateNode(head[indexNext])
 
 def LoadUMap(unorderedMap, keyConvertFunction, valueConvertFunction):
 	result = {}
@@ -78,7 +95,7 @@ def IterateMap(stdMap, func):
 			if head.Children[i].Name == childName:
 				return i
 
-	head = stdMap['_Myhead']
+	head = stdMap['_Mypair']['_Myval2']['_Myval2']['_Myhead']
 	headValue = head.Value
 
 	indexMyval = FindChildIndex('_Myval')
@@ -99,19 +116,21 @@ def LoadMap(stdMap, keyConvertFunction, valueConvertFunction):
 
 # std::string #################################################################
 def LoadString(variable):
-	size = int(variable['_Mysize'].Value)
+	myval2 = variable['_Mypair']['_Myval2']
+	size = int(myval2['_Mysize'].Value)
 	bufName = '_Buf'
 	if 16<= size:
 		bufName = '_Ptr'
-	memoryBlock = variable['_Bx'][bufName].ReadMemory(size)
+	memoryBlock = myval2['_Bx'][bufName].ReadMemory(size)
 	return memoryBlock.ConvertToAsciiString()
 
 def LoadWString(variable):
-	size = int(variable['_Mysize'].Value)
+	myval2 = variable['_Mypair']['_Myval2']
+	size = int(myval2['_Mysize'].Value)
 	bufName = '_Buf'
 	if 16<= size:
 		bufName = '_Ptr'
-	memoryBlock = variable['_Bx'][bufName].ReadMemory(size*2)
+	memoryBlock = myval2['_Bx'][bufName].ReadMemory(size*2)
 	return memoryBlock.ConvertToUnicodeString()
 
 # Null Terminated String ######################################################
