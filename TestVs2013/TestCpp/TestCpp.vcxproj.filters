@@ -4,10 +4,10 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Example.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TestCpp.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Example.py" />
+    <None Include="TestCpp.py" />
   </ItemGroup>
 </Project>
