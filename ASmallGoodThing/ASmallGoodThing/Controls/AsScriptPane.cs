@@ -6,9 +6,7 @@ namespace mkkim1129.ASmallGoodThing.Controls
     {
         public AsScriptPane() : base(null)
         {
-            this.Caption = "AsScript";
-            //this.BitmapResourceID = 301;
-            //this.BitmapIndex = 1;
+            this.Caption = "Script - A Small, Good Thing";
             this.Content = new AsScriptControl();
         }
     }

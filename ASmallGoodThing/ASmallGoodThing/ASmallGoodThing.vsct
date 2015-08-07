@@ -63,9 +63,9 @@
 
       <Button guid="guidASmallGoodThingCmdSet" id="cmdidShowAsScript" priority="0x0100" type="Button">
         <Parent guid="guidASmallGoodThingCmdSet" id="MyMenuGroup" />
-        <Icon guid="guidImages" id="bmpPic1" />
+        <Icon guid="guidImages" id="bmpCarver" />
         <Strings>
-          <ButtonText>AsScript</ButtonText>
+          <ButtonText>Script - A Small, Good Thing</ButtonText>
         </Strings>
       </Button>
 
@@ -80,7 +80,7 @@
             bitmap strip containing the bitmaps and then there are the numeric ids of the elements used 
             inside a button definition. An important aspect of this declaration is that the element id 
             must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
-      <Bitmap guid="guidImages" href="Resources\Images.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows"/>
+      <Bitmap guid="guidImages" href="Resources\Images.png" usedList="bmpCarver, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows"/>
       
     </Bitmaps>
  
@@ -104,7 +104,7 @@
     
     
     <GuidSymbol name="guidImages" value="{d4f158b8-df2c-45eb-b6af-4fadadc5c48c}" >
-      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpCarver" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
       <IDSymbol name="bmpPicX" value="4" />
