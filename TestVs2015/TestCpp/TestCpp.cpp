@@ -8,8 +8,20 @@
 #include <map>
 #include <string>
 
-int _tmain(int argc, _TCHAR* argv[])
-{
+enum Gender {
+	kMale,
+	kFemale
+};
+
+struct Person {
+	int age;
+	Gender gender;
+};
+
+int wmain(int argc, wchar_t* argv[]) {
+  int n = 123;
+	Person p = { 2, Gender::kFemale };
+
   std::vector<int> v = { 10, 11, 12, 13, 14 };
   std::list<int> l = { 10, 11, 12, 13, 14 };
   std::unordered_map<int, int> u = { { 1, 11 }, { 2, 22 }, { 3, 33 } };
