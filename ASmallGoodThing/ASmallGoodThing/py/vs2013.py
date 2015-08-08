@@ -31,6 +31,10 @@ def IterateList(stdList, func):
 			if head.Children[i].Name == childName:
 				return i
 
+	size = int(stdList['_Mysize'].Value)
+	if size == 0:
+		return
+
 	head = stdList['_Myhead']
 	
 	indexMyval = FindChildIndex('_Myval')
@@ -77,6 +81,10 @@ def IterateMap(stdMap, func):
 		for i in range(head.Children.Length):
 			if head.Children[i].Name == childName:
 				return i
+	
+	size = int(stdMap['_Mysize'].Value)
+	if size == 0:
+		return
 
 	head = stdMap['_Myhead']
 	headValue = head.Value

@@ -33,6 +33,9 @@ def IterateList(stdList, func):
 				return i
 
 	myval2 = stdList['_Mypair']['_Myval2']
+	size = int(myval2['_Mysize'].Value)
+	if size == 0:
+		return
 	head = myval2['_Myhead']
 	
 	indexMyval = FindChildIndex('_Myval')
@@ -62,6 +65,9 @@ def IterateUMap(unorderedMap, func):
 				return i
 	
 	myval2 = unorderedMap['_List']['_Mypair']['_Myval2']
+	size = int(myval2['_Mysize'].Value)
+	if size == 0:
+		return
 	head = myval2['_Myhead']
 
 	indexMyval = FindChildIndex('_Myval')
@@ -95,7 +101,11 @@ def IterateMap(stdMap, func):
 			if head.Children[i].Name == childName:
 				return i
 
-	head = stdMap['_Mypair']['_Myval2']['_Myval2']['_Myhead']
+	myval2 = stdMap['_Mypair']['_Myval2']['_Myval2']
+	size = int(myval2['_Mysize'].Value)
+	if size == 0:
+		return
+	head = myval2['_Myhead']
 	headValue = head.Value
 
 	indexMyval = FindChildIndex('_Myval')
