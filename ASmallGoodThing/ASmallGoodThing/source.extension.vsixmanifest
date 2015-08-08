@@ -3,7 +3,7 @@
   <Metadata>
     <Identity Id="34cd23bf-1b96-4640-ba6e-4a553302af9a" Version="0.1" Language="en-US" Publisher="mkkim1129" />
     <DisplayName>ASmallGoodThing</DisplayName>
-    <Description>Information about my package</Description>
+    <Description xml:space="preserve"> </Description>
   </Metadata>
   <Installation InstalledByMsi="false">
     <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[12.0,]" />

@@ -6,8 +6,6 @@ namespace mkkim1129.ASmallGoodThing
 {
     static class PkgCmdIDList
     {
-        public const uint cmdidShowAsScript =        0x100;
-
-
+        public const uint cmdidShowAsScript = 0x100;
     };
 }
