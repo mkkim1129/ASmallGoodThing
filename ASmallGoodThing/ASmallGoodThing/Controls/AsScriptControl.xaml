@@ -12,12 +12,12 @@
         </Style>
         <Style BasedOn="{StaticResource textBoxBase}" TargetType="TextBox"/>
         <Style BasedOn="{StaticResource textBoxBase}" TargetType="avalonEdit:TextEditor"/>
-        <Style TargetType="{x:Type asgt:AsCloseableTabItem}">
+        <Style TargetType="{x:Type asgt:AsClosableTabItem}">
             <Setter Property="Background" Value="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarOptionsBackgroundKey}}"/>
             <Setter Property="Foreground" Value="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type asgt:AsCloseableTabItem}">
+                    <ControlTemplate TargetType="{x:Type asgt:AsClosableTabItem}">
                         <Grid>
                             <Border Name="Border" Margin="0,0,-4,0" BorderThickness="1,1,1,1">
                                 <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center"

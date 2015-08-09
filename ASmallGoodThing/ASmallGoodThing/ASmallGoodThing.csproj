@@ -105,7 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsTextBoxStreamWriter.cs" />
-    <Compile Include="Controls\AsCloseableTabItem.cs" />
+    <Compile Include="Controls\AsClosableTabItem.cs" />
     <Compile Include="Controls\AsScriptControl.xaml.cs">
       <DependentUpon>AsScriptControl.xaml</DependentUpon>
     </Compile>

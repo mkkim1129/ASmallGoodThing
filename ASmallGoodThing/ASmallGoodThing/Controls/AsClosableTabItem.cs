@@ -2,7 +2,7 @@
 
 namespace mkkim1129.ASmallGoodThing.Controls
 {
-    public class AsCloseableTabItem : TabItem
+    public class AsClosableTabItem : TabItem
     {
         private string headerText_;
 

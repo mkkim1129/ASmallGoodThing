@@ -119,7 +119,7 @@ print(sys.version)
                 headerText = System.IO.Path.GetFileNameWithoutExtension(filename);
             }
 
-            AsCloseableTabItem tabItem = new AsCloseableTabItem();
+            AsClosableTabItem tabItem = new AsClosableTabItem();
             tabItem.SetHeader(headerText);
             tabItem.Content = textEditor;
 
@@ -131,7 +131,7 @@ print(sys.version)
         {
             try
             {
-                AsCloseableTabItem tabItem = tabScript.SelectedItem as AsCloseableTabItem;
+                AsClosableTabItem tabItem = tabScript.SelectedItem as AsClosableTabItem;
                 string message = "[" + DateTime.Now.ToString("tt HH:mm:ss") + "] Run Script(" + tabItem.HeaderText + ")" + Environment.NewLine;
                 textboxOutput.AppendText(message);
                 textboxOutput.ScrollToEnd();
@@ -152,7 +152,7 @@ print(sys.version)
             try
             {
                 // TODO : 탭이 없는 것 정도는 별도로 처리해주자
-                AsCloseableTabItem tabItem = tabScript.SelectedItem as AsCloseableTabItem;
+                AsClosableTabItem tabItem = tabScript.SelectedItem as AsClosableTabItem;
                 var textEditor = tabItem.Content as ICSharpCode.AvalonEdit.TextEditor;
                 string selectedText = textEditor.SelectedText;
                 textboxOutput.AppendText(">>> " + selectedText + Environment.NewLine);
@@ -291,7 +291,7 @@ print(sys.version)
 
         private void saveFileClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            AsCloseableTabItem tabItem = tabScript.SelectedItem as AsCloseableTabItem;
+            AsClosableTabItem tabItem = tabScript.SelectedItem as AsClosableTabItem;
             SaveFile(tabItem);
         }
 
@@ -299,11 +299,11 @@ print(sys.version)
         {
             foreach (TabItem tabItem in tabScript.Items)
             {
-                SaveFile(tabItem as AsCloseableTabItem);
+                SaveFile(tabItem as AsClosableTabItem);
             }
         }
 
-        private void SaveFile(AsCloseableTabItem tabItem)
+        private void SaveFile(AsClosableTabItem tabItem)
         {
             var textEditor = tabItem.Content as ICSharpCode.AvalonEdit.TextEditor;
             string filename = textEditor.Document.FileName;
