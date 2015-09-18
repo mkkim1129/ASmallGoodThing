@@ -4,7 +4,7 @@
 
 ## 설치
 * [A Small, Good Thing 설치파일](https://github.com/mkkim1129/ASmallGoodThing/blob/master/Install/ASmallGoodThing.vsix?raw=true)
-* [IronePython](http://ironpython.net/)
+* [IronPython](http://ironpython.net/)
 
 정상적으로 설치되면 Visual Studio 메뉴-"Tools"-"Script - A Small, Good Thing"이 나타납니다.
 
